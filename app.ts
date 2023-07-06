@@ -50,3 +50,4 @@ app.get('/', async (req: Request, res: Response)=>
     });
 });
 require('./controller/authController')(app);
+require('./controller/deliveryEmployeeController')(app);
