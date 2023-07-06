@@ -53,8 +53,24 @@ module.exports = function(app: Application) {
     })
 
     app.get('/update-delivery-employee', async(req: Request, res: Response) => {
-        let data: DeliveryEmployee[];
+        let data = DeliveryEmployee;
 
-        res.render('update-delivery-employee');
+        try{
+            data = await deliveryEmployeeService.getDeliveryEmployees();
+        } catch (e) {
+            console.error(e);
+        }
+
+        res.render('update-delivery-employee', {deliveryEmployees: data});
     });
+
+    app.post('/update-delivery-employee', async function (req:Request, res: Response) {
+        let data: DeliveryEmployee = req.body;
+
+        try{
+            console.log(req.body);
+        } catch(e) {
+            console.error(e);
+        }
+    })
 }
