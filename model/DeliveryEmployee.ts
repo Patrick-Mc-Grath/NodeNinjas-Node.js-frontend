@@ -1,5 +1,5 @@
 export class DeliveryEmployee {
-    deliveryEmployeeID: number
+    employeeId: number
     name: string
     salary: number
     bankAccountNo: string
