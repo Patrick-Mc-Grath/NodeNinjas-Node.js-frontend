@@ -39,4 +39,8 @@ module.exports = function(app: Application) {
         }
         res.render('view-delivery-employee', {deliveryEmployee: data} )
     })
+
+    app.get('/update-delivery-employee', async(req: Request, res: Response) => {
+        res.render('/update-delivery-employee');
+    });
 }
