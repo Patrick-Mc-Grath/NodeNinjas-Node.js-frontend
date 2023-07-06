@@ -28,6 +28,17 @@ module.exports.getDeliveryEmployeeByID = async function (id: number): Promise<De
     }
 }
 
+module.exports.getDeliveryEmployees = async function (): Promise<DeliveryEmployee> {
+    try {
+        const response = await axios.get('http://localhost:8080/api/delivery-employee')
+        
+        return response.data
+    }
+    catch (e) {
+        throw new Error('Could not get delivery employees')
+    }
+}
+
 module.exports.updateDeliveryEmployee = async function (id: number, employee: DeliveryEmployee) {
   try {
     const response = await axios.put('http://localhost:8080/api/delivery-employee' + id, employee);

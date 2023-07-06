@@ -40,6 +40,18 @@ module.exports = function(app: Application) {
         res.render('view-delivery-employee', {deliveryEmployee: data} )
     })
 
+    app.get('/delivery-employee', async(req: Request, res: Response) => {
+        let data = DeliveryEmployee;
+        
+        try{
+            data = await deliveryEmployeeService.getDeliveryEmployees()
+        } catch (e) {
+            console.error(e)
+        }
+
+        res.render('list-delivery-employees', { deliveryEmployees: data })
+    })
+
     app.get('/update-delivery-employee', async(req: Request, res: Response) => {
         let data: DeliveryEmployee[];
 
