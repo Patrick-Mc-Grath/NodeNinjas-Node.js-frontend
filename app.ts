@@ -45,8 +45,8 @@ app.listen(3000, ()=>{
 
 app.get('/', async (req: Request, res: Response)=>
 {
-    res.render('pizza', {
-        title: 'New Pizza Time',
+    res.render('NodeNinjas', {
+        title: 'NodeNinjas',
     });
 });
 require('./controller/authController')(app);
