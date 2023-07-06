@@ -45,7 +45,7 @@ app.listen(3000, ()=>{
 
 app.get('/', async (req: Request, res: Response)=>
 {
-    res.render('NodeNinjas', {
+    res.render('index', {
         title: 'NodeNinjas',
     });
 });

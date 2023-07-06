@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Add Delivery Employee</title>
+        <title>Update Delivery Employee</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     </head>
     <body>
@@ -10,7 +10,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Add Delivery Employee</h1>
+                        <h1>Update Delivery Employee</h1>
                     </div>
                 </div>
             </div>
@@ -18,30 +18,33 @@
         <main class="container mt-4">
             <section id="form" class="bg-light py-5">
                 <div class="container">
-                    <p>Enter delivery employee details</p>
                     {% if errormessage %}
                         <div class="alert alert-danger" role="alert">
                             {{ errormessage }}
                         </div>
                     {% endif %}
-                    <form action="/add-delivery-employee" method="post">
-                        <div class="form-group">
+                    <form action="/update-delivery-employee" method="post">
+                        <div class="form-group mb-1">
+                            <select class="form-select">
+                                <option value="">Select employee to update...</option>
+                                {% for employee in deliveryEmployees %}
+                                    <option value="{{employee.deliveryEmployeeId}}">{{employee.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group mb-1">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" class="form-control" value="{{ name }}" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-1">
                             <label for="price">Salary</label>
                             <input type="number" min="0" step="any" id="salary" name="salary" class="form-control" value="{{ salary }}"required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-1">
                             <label for="bankAccountNo">Bank Account Number</label>
-                            <input type="text" id="bankAccountNo" name="bankAccountNo" class="form-control" value="bankAccountNo" required>
+                            <input type="text" id="bankAccountNo" name="bankAccountNo" class="form-control" value="{{bankAccountNo}}" required>
                         </div>
-                        <div class="form-group">
-                            <label for="natInsuranceNo">National Insurance Number</label>
-                            <input type="text" id="natInsuranceNo" name="natInsuranceNo" class="form-control" value="natInsuranceNo" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>
                 </div>
             </section>
