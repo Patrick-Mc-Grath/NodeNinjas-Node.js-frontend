@@ -1,7 +1,7 @@
 import { DeliveryEmployee } from "../model/DeliveryEmployee";
 
 const axios = require('axios');
-const deliverEmployeeValidator = require('deliveryEmployeeValidator');
+const deliverEmployeeValidator = require('../validator/deliveryEmployeeValidator');
 
 module.exports.createDeliveryEmployee = async function (deliveryEmployee: DeliveryEmployee): Promise<number> {
     const error: string = deliverEmployeeValidator.validateDeliveryEmployee(deliveryEmployee);
@@ -14,6 +14,6 @@ module.exports.createDeliveryEmployee = async function (deliveryEmployee: Delive
 
         return response.data
     } catch(e) {
-        throw new Error('Could not create product');
+        throw new Error('Could not create employee');
     }
 }

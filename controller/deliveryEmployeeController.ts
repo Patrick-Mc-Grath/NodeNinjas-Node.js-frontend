@@ -7,7 +7,6 @@ const deliveryEmployeeService = require('../service/deliveryEmployeeService')
 
 module.exports = function(app: Application) {
     app.get('/add-delivery-employee', async(req: Request, res: Response) => {
-        console.log('test');
         res.render('add-delivery-employee');
     })
 

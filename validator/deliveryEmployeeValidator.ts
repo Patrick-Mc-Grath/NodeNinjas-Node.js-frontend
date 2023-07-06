@@ -1,6 +1,6 @@
 import { DeliveryEmployee } from "../model/DeliveryEmployee";
 
-module.exports.validateProduct = function (deliveryEmployee: DeliveryEmployee): string {
+module.exports.validateDeliveryEmployee = function (deliveryEmployee: DeliveryEmployee): string {
     if(deliveryEmployee.name.length > 50) {
         return "Name must be under 50 characters";
     }
