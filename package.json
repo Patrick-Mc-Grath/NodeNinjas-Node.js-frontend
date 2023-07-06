@@ -1,0 +1,15 @@
+{
+  "name": "nodeninjas-node.js-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Patrick-Mc-Grath/NodeNinjas-Node.js-frontend/issues"
+  },
+  "homepage": "https://github.com/Patrick-Mc-Grath/NodeNinjas-Node.js-frontend#readme"
+}
