@@ -28,12 +28,10 @@ module.exports = function(app: Application) {
     })
 
     app.get('/delivery-employee/:id', async(req: Request, res: Response) => {
-        let data = DeliveryEmployee
+        let data = DeliveryEmployee;
 
         try{
-            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id)
-
-            console.log(data)
+            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id);
         } catch(e) {
             console.error(e)
         }
@@ -44,11 +42,21 @@ module.exports = function(app: Application) {
         let data = DeliveryEmployee;
         
         try{
-            data = await deliveryEmployeeService.getDeliveryEmployees()
+            data = await deliveryEmployeeService.getDeliveryEmployees();
         } catch (e) {
             console.error(e)
         }
 
         res.render('list-delivery-employees', { deliveryEmployees: data })
+    })
+
+    app.delete('/delivery-employee/:id', async(req: Request, res: Response) => {
+        let data = DeliveryEmployee;
+
+        try{
+            data = await deliveryEmployeeService.deleteDeliveryEmployee();
+        } catch(e) {
+            console.error(e);
+        }
     })
 }
