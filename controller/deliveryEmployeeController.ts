@@ -50,8 +50,15 @@ module.exports = function(app: Application) {
         res.render('list-delivery-employees', { deliveryEmployees: data })
     })
 
-    app.get('/delete-delivery-employee', async(req: Request, res: Response) => {
-        res.render('delete-delivery-employee');
+    app.get('/delete-delivery-employee/:id', async(req: Request, res: Response) => {
+        let data = DeliveryEmployee;
+
+        try{
+            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id);
+        } catch(e) {
+            console.error(e)
+        }
+        res.render('delete-delivery-employee', {deliveryEmployee: data});
     })
 
     app.delete('/delete-delivery-employee/:id', async(req: Request, res: Response) => {
