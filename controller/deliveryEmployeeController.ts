@@ -41,6 +41,8 @@ module.exports = function(app: Application) {
     })
 
     app.get('/update-delivery-employee', async(req: Request, res: Response) => {
-        res.render('/update-delivery-employee');
+        let data: DeliveryEmployee[];
+
+        res.render('update-delivery-employee');
     });
 }
