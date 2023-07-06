@@ -17,7 +17,7 @@ module.exports = function(app: Application) {
         try {
             id = await deliveryEmployeeService.createDeliveryEmployee(data)
 
-            res.redirect('/delivery-employees' + id)
+            res.redirect('/delivery-employee/' + id)
         } catch(e) {
             console.error(e)
 
@@ -25,5 +25,18 @@ module.exports = function(app: Application) {
 
             res.render('add-delivery-employee', req.body)
         }
+    })
+
+    app.get('/delivery-employee/:id', async(req: Request, res: Response) => {
+        let data = DeliveryEmployee
+
+        try{
+            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id)
+
+            console.log(data)
+        } catch(e) {
+            console.error(e)
+        }
+        res.render('view-delivery-employee', {deliveryEmployee: data} )
     })
 }
