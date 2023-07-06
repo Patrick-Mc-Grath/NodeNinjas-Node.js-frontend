@@ -17,3 +17,13 @@ module.exports.createDeliveryEmployee = async function (deliveryEmployee: Delive
         throw new Error('Could not create employee');
     }
 }
+
+module.exports.getDeliveryEmployeeByID = async function (id: number): Promise<DeliveryEmployee> {
+    try {
+        const response = await axios.get('http://localhost:8080/api/delivery-employee/' + id)
+
+        return response.data
+    } catch(e) {
+        throw new Error('Could not get delivery employee')
+    }
+}
