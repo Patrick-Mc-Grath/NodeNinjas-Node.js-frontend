@@ -50,6 +50,10 @@ module.exports = function(app: Application) {
         res.render('list-delivery-employees', { deliveryEmployees: data })
     })
 
+    app.get('/delete-delivery-employee', async(req: Request, res: Response) => {
+        res.render('delete-delivery-employee');
+    })
+
     app.delete('/delivery-employee/:id', async(req: Request, res: Response) => {
         let data = DeliveryEmployee;
 
