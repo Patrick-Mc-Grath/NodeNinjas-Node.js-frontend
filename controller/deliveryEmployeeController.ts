@@ -54,7 +54,7 @@ module.exports = function(app: Application) {
         res.render('delete-delivery-employee');
     })
 
-    app.delete('/delivery-employee/:id', async(req: Request, res: Response) => {
+    app.delete('/delete-delivery-employee/:id', async(req: Request, res: Response) => {
         let data = DeliveryEmployee;
 
         try{
