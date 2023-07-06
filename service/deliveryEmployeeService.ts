@@ -10,7 +10,7 @@ module.exports.createDeliveryEmployee = async function (deliveryEmployee: Delive
         throw new Error(error);
     }
     try {
-        const response = await axios.post('http://localhost:8080/api/deliveryEmployees', deliveryEmployee)
+        const response = await axios.post('http://localhost:8080/api/delivery-employee', deliveryEmployee)
 
         return response.data
     } catch(e) {
