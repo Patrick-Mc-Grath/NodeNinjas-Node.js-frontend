@@ -28,12 +28,10 @@ module.exports = function(app: Application) {
     })
 
     app.get('/delivery-employee/:id', async(req: Request, res: Response) => {
-        let data = DeliveryEmployee
+        let data = DeliveryEmployee;
 
         try{
-            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id)
-
-            console.log(data)
+            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id);
         } catch(e) {
             console.error(e)
         }
@@ -44,7 +42,7 @@ module.exports = function(app: Application) {
         let data = DeliveryEmployee;
         
         try{
-            data = await deliveryEmployeeService.getDeliveryEmployees()
+            data = await deliveryEmployeeService.getDeliveryEmployees();
         } catch (e) {
             console.error(e)
         }
@@ -52,6 +50,22 @@ module.exports = function(app: Application) {
         res.render('list-delivery-employees', { deliveryEmployees: data })
     })
 
+    app.get('/delete-delivery-employee/:id', async(req: Request, res: Response) => {
+        let data = DeliveryEmployee;
+
+        try{
+            data = await deliveryEmployeeService.getDeliveryEmployeeByID(req.params.id);
+        } catch(e) {
+            console.error(e)
+        }
+        res.render('delete-delivery-employee', {deliveryEmployee: data});
+    })
+
+    app.delete('/delete-delivery-employee/:id', async(req: Request, res: Response) => {
+        let data = DeliveryEmployee;
+
+        try{
+            data = await deliveryEmployeeService.deleteDeliveryEmployee();
     app.get('/update-delivery-employee', async(req: Request, res: Response) => {
         let data = DeliveryEmployee;
 

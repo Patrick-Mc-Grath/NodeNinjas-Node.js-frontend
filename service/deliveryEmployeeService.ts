@@ -14,7 +14,7 @@ module.exports.createDeliveryEmployee = async function (deliveryEmployee: Delive
 
         return response.data
     } catch(e) {
-        throw new Error('Could not create employee');
+        throw new Error('Could not create delivery employee');
     }
 }
 
@@ -39,6 +39,14 @@ module.exports.getDeliveryEmployees = async function (): Promise<DeliveryEmploye
     }
 }
 
+
+module.exports.deleteDeliveryEmployee = async function (id: number) {
+    try {
+        const response = await axios.delete('http://localhost:8080/api/delivery-employee')
+    } catch (e) {
+        throw new Error('Could not delete delivery employee')
+    }
+  
 module.exports.updateDeliveryEmployee = async function (id: number, employee: DeliveryEmployee) {
   try {
     const response = await axios.put('http://localhost:8080/api/delivery-employee' + id, employee);
