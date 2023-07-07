@@ -28,6 +28,6 @@ module.exports.Register = async function(login: Login): Promise<number>
     }
     catch(e)
     {
-        throw new Error('Could not create order')
+        throw new Error('Could not create user')
     }
 }
