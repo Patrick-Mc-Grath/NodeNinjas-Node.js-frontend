@@ -13,7 +13,7 @@ module.exports = function(app: Application){
         {
             req.session.token = await authService.login(data)
 
-            res.redirect('/products')
+            res.redirect('/add-delivery-employee')
         }
         catch (e)
         {

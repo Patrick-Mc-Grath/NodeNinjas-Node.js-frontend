@@ -66,6 +66,12 @@ module.exports = function(app: Application) {
 
         try{
             data = await deliveryEmployeeService.deleteDeliveryEmployee();
+        }
+        catch(e){
+            console.error(e);
+        }
+    });
+
     app.get('/update-delivery-employee', async(req: Request, res: Response) => {
         let data = DeliveryEmployee;
 
